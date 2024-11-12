@@ -1,0 +1,5 @@
+{
+  "count": 8299,
+  "encoding": "cl100k_base",
+  "tokenizer": "openai_tiktoken"
+}
