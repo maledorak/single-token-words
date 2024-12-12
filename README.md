@@ -1,6 +1,6 @@
-# Single token words
+# Single token words and names
 
-This project is to find all the words that can be encoded by a single token in different LLM tokenizers.
+This project is to find all the words and english first names that can be encoded by a single token in different LLM tokenizers.
 
 Useful if you want to map some large text chunks before sending to LLM.
 
@@ -56,9 +56,31 @@ class SingleTokenWords:
         return self._words.pop()
 ```
 
+or with names:
+
+```python
+class SingleTokenNames:
+    def __init__(self):
+        self._names = set(self._load_names())
+
+    def _load_names(self) -> List[str]:
+        with open('single_token_names.json', 'r') as file:
+            return json.load(file)
+        
+    def get_name(self) -> str:
+        return self._names.pop()
+```
+
 ## Supported languages
 
+
+### Words   
+
 - English - based on [English-Valid-Words](https://github.com/Maximax67/English-Valid-Words) repository
+
+### Names
+
+- English - based on [names-dataset](https://pypi.org/project/names-dataset/) library
 
 ## Supported tokenizers
 
